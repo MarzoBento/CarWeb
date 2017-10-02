@@ -1,0 +1,89 @@
+﻿@model IEnumerable<CarWeb.Models.Municipios>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Consultar Municípios</h2>
+
+<p>
+    @Html.ActionLink("Cadastrar Municípios", "Create", null, new { @class = "btn btn-primary" })
+</p>
+@using (@Html.BeginForm())
+{
+
+    <div class="form-group">
+        <div class="col-md-8">
+            @Html.TextBox("pesquisaMunicipio", null, new { @id = "txtPesquisa", @class = "form-control long", placeholder = "Nome do Município" })
+        </div>
+        <div class="btn btn-default">
+            <button class="btn btn-primary" type="submit">Pesquisar</button>
+        </div>
+    </div>
+
+}
+<p>
+
+</p>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.municipio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.uf)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.municipio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.uf)
+            </td>
+            <td>
+
+                @Html.ActionLink("Alterar", "Edit", new { id = item.idmunicipio }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Detalhes", "Details", new { id = item.idmunicipio }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Excluir", "Delete", new { id = item.idmunicipio }, new { @class = "btn btn-info" })
+            </td>
+        </tr>
+    }
+
+</table>
+@section Scripts
+{
+    <link href="~/Scripts/autocomplete/jquery-ui.css" rel="stylesheet" />
+    <script src="~/Scripts/autocomplete/jquery-ui.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#txtPesquisa").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: '@Url.Action("Index", "Municipios")',
+                        type: "POST",
+                        dataType: "json",
+                        data: { pesquisaMunicipio: request.term },
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return { label: item.nome, value: item.nome };
+                            }))
+
+                        }
+                    })
+                },
+                messages: {
+                    noResults: "", results: ""
+                },
+            });
+        })
+        
+    </script>
+    }

@@ -1,0 +1,171 @@
+﻿@model CarWeb.Models.Cadastros
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalhes</h2>
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Cadastros Rural</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.ncadastro)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ncadastro)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.idlote)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.idlote)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Munic.municipio)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Munic.municipio)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.propietario)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.propietario)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.fonecontato)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.fonecontato)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.propriedade)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.propriedade)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.comunidade)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.comunidade)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.area)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.area)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.statuscoodenada)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.statuscoodenada)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.statusgoogle)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.statusgoogle)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.statusservico)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.statusservico)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.observacao)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.observacao)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.cadastrador)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.cadastrador)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.dtcadastro)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.dtcadastro)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.statusemissao)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.statusemissao)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.numerocarba)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.numerocarba)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.statusimpressao)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.statusimpressao)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.dtentrega)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.dtentrega)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Alterar", "Edit", new { id = Model.idcadastro }, new { @class = "btn btn-info" })
+        @Html.ActionLink("Voltar a Lista", "Index", null, new { @class = "btn btn-info" })
+    </p>
+</body>
+</html>

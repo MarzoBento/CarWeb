@@ -1,0 +1,36 @@
+﻿@model CarWeb.Models.Propietario
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Propietario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.propietario1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.propietario1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cpf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cpf)
+        </dd>
+
+    </dl>
+</div>
+<p>
+
+    @Html.ActionLink("Alterar", "Edit", new { id = Model.idpropietario }, new { @class = "btn btn-info" })
+    @Html.ActionLink("Voltar a Lista", "Index", null, new { @class = "btn btn-info" })
+</p>
+

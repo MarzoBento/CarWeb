@@ -1,0 +1,178 @@
+﻿@model CarWeb.Models.Cadastros
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Cadastro Rural</h2>
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Cadastro</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.ncadastro, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.EditorFor(model => model.ncadastro, new { htmlAttributes = new { @class = "form-control long" } })
+                @Html.ValidationMessageFor(model => model.ncadastro, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    @Html.LabelFor(model => model.idlote, htmlAttributes: new { @class = "control-label col-md-2" })
+                </div>
+                @Html.DropDownListFor(model => model.idlote, ViewData["DropLote"] as SelectList, new { @class = "form-control long" })
+            </div>
+            <div class="col-md-3">
+                <div class="row">
+                    @Html.LabelFor(model => model.Idmunicipio, htmlAttributes: new { @class = "control-label col-md-2" })
+                </div>
+                @Html.DropDownListFor(model => model.Idmunicipio, ViewData["DropMunicipio"] as SelectList, new { @class = "form-control long" })
+            </div>
+            <div class="col-md-5">
+                @Html.LabelFor(model => model.propietario, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.EditorFor(model => model.propietario, new { htmlAttributes = new { @class = "form-control long" } })
+                @Html.ValidationMessageFor(model => model.propietario, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.cpf, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.EditorFor(model => model.cpf, new { htmlAttributes = new { @class = "form-control long", id = "cpf" } })
+                @Html.ValidationMessageFor(model => model.cpf, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.fonecontato, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.EditorFor(model => model.fonecontato, new { htmlAttributes = new { @class = "form-control long", id = "fone" } })
+                @Html.ValidationMessageFor(model => model.fonecontato, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-5">
+                @Html.LabelFor(model => model.propriedade, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.EditorFor(model => model.propriedade, new { htmlAttributes = new { @class = "form-control long" } })
+                @Html.ValidationMessageFor(model => model.propriedade, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.comunidade, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.EditorFor(model => model.comunidade, new { htmlAttributes = new { @class = "form-control long" } })
+                @Html.ValidationMessageFor(model => model.comunidade, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.area, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.EditorFor(model => model.area, new { htmlAttributes = new { @class = "form-control long" } })
+                @Html.ValidationMessageFor(model => model.area, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.statuscoodenada, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.DropDownListFor(model => model.statuscoodenada, (SelectList)ViewBag.Coordenadas, String.Empty, new { @class = "form-control long" })
+                @Html.ValidationMessageFor(model => model.statuscoodenada, "", new { @class = "text-danger" })
+
+            </div>
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.statusgoogle, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.DropDownListFor(model => model.statusgoogle, (SelectList)ViewBag.Google, String.Empty, new { @class = "form-control long" })
+                @Html.ValidationMessageFor(model => model.statusgoogle, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(model => model.statusservico, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.DropDownListFor(model => model.statusservico, (SelectList)ViewBag.Servico, String.Empty, new { @class = "form-control long" })
+                @Html.ValidationMessageFor(model => model.statusservico, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.LabelFor(model => model.observacao, htmlAttributes: new { @class = "control-label col-md-1" })
+                @Html.EditorFor(model => model.observacao, new { htmlAttributes = new { @class = "form-control long" } })
+                @Html.ValidationMessageFor(model => model.observacao, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-8">
+                <div class="row">
+                    @Html.LabelFor(model => model.cadastrador, htmlAttributes: new { @class = "control-label col-md-2" })
+                </div>
+                @Html.DropDownListFor(model => model.cadastrador, ViewData["cadastrador"] as SelectList, new { @class = "form-control long" })
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.dtcadastro, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.EditorFor(model => model.dtcadastro, new { htmlAttributes = new { @class = "form-control", id = "dtcadastro" } })
+                @Html.ValidationMessageFor(model => model.dtcadastro, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.statusemissao, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.DropDownListFor(model => model.statusemissao, (SelectList)ViewBag.Emissao, String.Empty, new { @class = "form-control long" })
+                @Html.ValidationMessageFor(model => model.statusemissao, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-8">
+                @Html.LabelFor(model => model.numerocarba, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.EditorFor(model => model.numerocarba, new { htmlAttributes = new { @class = "form-control long" } })
+                @Html.ValidationMessageFor(model => model.numerocarba, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.statusimpressao, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.DropDownListFor(model => model.statusimpressao, (SelectList)ViewBag.Recibo, String.Empty, new { @class = "form-control long" })
+                @Html.ValidationMessageFor(model => model.statusimpressao, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.dtentrega, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.EditorFor(model => model.dtentrega, new { htmlAttributes = new { @class = "form-control long", id = "dtentrega" } })
+                @Html.ValidationMessageFor(model => model.dtentrega, "", new { @class = "text-danger" })
+                @* @Html.HiddenFor(model => model.ncadastro, new { @Value = (Model.idlote) })*@
+            </div>
+        </div>
+        <div class="well">
+            <table class="table table-striped">
+                <tr>
+                    <td>Arquivos :</td>
+                    <td><input type="file" id="Arquivoss" name="Arquivoss" multiple /></td>
+                </tr>
+                <tr></tr>
+            </table>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-4">
+                <input type="submit" value="Salvar" class="btn btn-info" id="save" />
+                @Html.ActionLink("Voltar a Lista", "Index", null, new { @class = "btn btn-info" })
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <link href="~/Scripts/jquery-ui.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
+    <script src="~/Scripts/autocomplete/jquery-ui.js"></script>
+    <script type="text/javascript">
+       @* $(document).ready(function () {
+            $('#dtcadastro').datepicker({
+                weekStart: 1,
+                dateFormat: "dd/mm/yy",
+                showStatus: true,
+                showWeeks: true,
+                currentText: 'Now',
+                autoSize: true,
+                gotoCurrent: true,
+                showAnim: 'blind',
+                highlightWeek: true
+            });
+        });*@
+        $("#dtcadastro").inputmask("mask", { "mask": "99/99/9999" })
+        $("#dtentrega").inputmask("mask", {"mask" : "99/99/9999"})
+        $("#fone").inputmask("mask", { "mask": "(99) 9999-9999" });
+        $("#cpf").inputmask("mask",{"mask": "999.999.999-99"})
+
+    </script>
+}

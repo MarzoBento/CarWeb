@@ -1,0 +1,50 @@
+﻿@model CarWeb.Models.Municipios
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Cadastro de Municípios</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Municipios</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.idlote, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.DropDownListFor(model => model.idlote, ViewData["DropLote"] as SelectList, new { @class = "form-control long" })
+            </div>
+            <div class="col-md-8">
+                    @Html.LabelFor(model => model.municipio, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model.municipio, new { htmlAttributes = new { @class = "form-control long" } })
+                    @Html.ValidationMessageFor(model => model.municipio, "", new { @class = "text-danger" })
+                </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.uf, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.DropDownListFor(model => model.uf, (SelectList)ViewBag.uf, String.Empty, new { @class = "form-control long" })
+                @Html.ValidationMessageFor(model => model.uf, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-4">
+                <input type="submit" value="Salvar" class="btn btn-info" id="save" />
+                @Html.ActionLink("Voltar a Lista", "Index", null, new { @class = "btn btn-info" })
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

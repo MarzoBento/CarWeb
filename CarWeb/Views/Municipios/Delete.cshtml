@@ -1,0 +1,50 @@
+﻿@model CarWeb.Models.Municipios
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<title>Excluir</title>
+
+<h3>Deseja Excluir Este Registro?</h3>
+<div>
+    <h4>Municipios</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.idlote)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idlote)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.municipio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.municipio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.uf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.uf)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" />
+            @Html.ActionLink("Voltar a Lista", "Index", null, new { @class = "btn btn-info" })
+        </div>
+    }
+</div>
+

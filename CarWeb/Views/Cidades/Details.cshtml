@@ -1,0 +1,34 @@
+﻿@model CarWeb.Models.Cidade
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Cidade</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cidade1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cidade1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.uf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.uf)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idcidade }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

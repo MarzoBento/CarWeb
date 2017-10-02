@@ -1,0 +1,18 @@
+﻿@model  IEnumerable<CarWeb.Models.Cadastros>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Importar Planilha de Cadastro</h2>
+
+@using (Html.BeginForm("Index", "ImportacaoCadastro", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+{
+
+
+    <input type="file" name="file" />
+    <input type="submit" value="OK" />
+
+}

@@ -1,0 +1,26 @@
+﻿@model CarWeb.Models.Cadastrador
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Cadastrador</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cadastrador1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cadastrador1)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Alterar", "Edit", new { id = Model.idcadastrador }, new { @class = "btn btn-info" })
+    @Html.ActionLink("Voltar a Lista", "Index", null, new { @class = "btn btn-info" })
+</p>

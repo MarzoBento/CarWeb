@@ -1,0 +1,102 @@
+﻿@model IEnumerable<CarWeb.Models.Cadastros>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Consulta de Cadastros Rural</h2>
+
+<p>
+    @Html.ActionLink("Cadastro Rural", "Create", null, new { @class = "btn btn-primary" })
+</p>
+@using (@Html.BeginForm())
+{
+
+    <div class="form-group">
+        <div class="col-md-5">
+            @Html.TextBox("pesquisaProp", null, new { @id = "txtPesquisa", @class = "form-control long", placeholder = "Nome do Proprietário" })
+        </div>
+        <div class="btn btn-default">
+            <button class="btn btn-primary" type="submit">Pesquisar</button>
+        </div>
+    </div>
+
+}
+<p>
+
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.propietario)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.propriedade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.area)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dtcadastro)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.propietario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.propriedade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.area)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dtcadastro)
+            </td>
+
+            <td>
+                @Html.ActionLink("Alterar", "Edit", new { id = item.idcadastro }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Detalhes", "Details", new { id = item.idcadastro }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Excluir", "Delete", new { id = item.idcadastro }, new { @class = "btn btn-info" })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@section Scripts
+{
+    <link href="~/Scripts/autocomplete/jquery-ui.css" rel="stylesheet" />
+    <script src="~/Scripts/autocomplete/jquery-ui.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#txtPesquisa").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: '@Url.Action("Index", "Cadastros")',
+                        type: "POST",
+                        dataType: "json",
+                        data: { pesquisaProp: request.term },
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return { label: item.nome, value: item.nome };
+                            }))
+
+                        }
+                    })
+                },
+                messages: {
+                    noResults: "", results: ""
+                },
+            });
+        })
+
+    </script>
+}
+

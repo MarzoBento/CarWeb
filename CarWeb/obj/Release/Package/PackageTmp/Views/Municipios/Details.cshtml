@@ -1,0 +1,42 @@
+﻿@model CarWeb.Models.Municipios
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Municipios</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.idlote)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idlote)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.municipio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.municipio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.uf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.uf)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Alterar", "Edit", new { id = Model.idmunicipio }, new { @class = "btn btn-info" })
+    @Html.ActionLink("Voltar a Lista", "Index", null, new { @class = "btn btn-info" })
+</p>

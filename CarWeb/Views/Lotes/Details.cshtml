@@ -1,0 +1,26 @@
+﻿@model CarWeb.Models.Lotes
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Lotes</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.lote)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lote)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Alterar", "Edit", new { id = Model.idlote }, new { @class = "btn btn-info" })
+    @Html.ActionLink("Voltar a Lista", "Index", null, new { @class = "btn btn-info" })
+</p>

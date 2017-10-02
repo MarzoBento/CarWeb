@@ -1,0 +1,23 @@
+﻿@model IEnumerable<CarWeb.Models.ImportacaoSeia>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Importar Relatório SEIA</h2>
+
+@using (Html.BeginForm("Index", "ImportacaoSeias", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+{
+
+
+    <input type="file" name="file" />
+    <input type="submit" value="OK" />
+
+}
+
