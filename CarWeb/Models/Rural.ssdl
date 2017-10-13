@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Rural.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="RuralStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Rural.Store.__MigrationHistory" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Acessos" EntityType="Rural.Store.Acessos" store:Type="Tables" store:Schema="dbo" store:Name="Acessos">
+      <DefiningQuery>SELECT 
+[Acessos].[idacesso] AS [idacesso], 
+[Acessos].[idprojeto] AS [idprojeto], 
+[Acessos].[idusuario] AS [idusuario]
+FROM [dbo].[Acessos] AS [Acessos]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Arquivos" EntityType="Rural.Store.Arquivos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AspNetRoles" EntityType="Rural.Store.AspNetRoles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Rural.Store.AspNetUserClaims" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Rural.Store.AspNetUserLogins" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Rural.Store.AspNetUserRoles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AspNetUsers" EntityType="Rural.Store.AspNetUsers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Cadastrador" EntityType="Rural.Store.Cadastrador" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Cadastros" EntityType="Rural.Store.Cadastros" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Cidade" EntityType="Rural.Store.Cidade" store:Type="Tables" store:Schema="dbo" store:Name="Cidade">
+      <DefiningQuery>SELECT 
+[Cidade].[idcidade] AS [idcidade], 
+[Cidade].[cidade] AS [cidade], 
+[Cidade].[uf] AS [uf]
+FROM [dbo].[Cidade] AS [Cidade]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ImportacaoSeia" EntityType="Rural.Store.ImportacaoSeia" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Lotes" EntityType="Rural.Store.Lotes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Municipios" EntityType="Rural.Store.Municipios" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Propietario" EntityType="Rural.Store.Propietario" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="Rural.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="usuarios" EntityType="Rural.Store.usuarios" store:Type="Tables" store:Schema="dbo" store:Name="usuarios">
+      <DefiningQuery>SELECT 
+[usuarios].[idusu] AS [idusu], 
+[usuarios].[nome] AS [nome], 
+[usuarios].[email] AS [email], 
+[usuarios].[login] AS [login], 
+[usuarios].[senha] AS [senha], 
+[usuarios].[status] AS [status], 
+[usuarios].[tipousuario] AS [tipousuario]
+FROM [dbo].[usuarios] AS [usuarios]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Arquivos_Cadastros" Association="Rural.Store.FK_Arquivos_Cadastros">
+      <End Role="Cadastros" EntitySet="Cadastros" />
+      <End Role="Arquivos" EntitySet="Arquivos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Rural.Store.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Rural.Store.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Rural.Store.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Rural.Store.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="ContextKey" Type="nvarchar" Nullable="false" MaxLength="300" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" Nullable="false" MaxLength="32" />
+  </EntityType>
+  <!--Erros Encontrados Durante a Geração:
+aviso 6002: A tabela/exibição 'AmbientalRuaris.dbo.Acessos' não tem uma chave primária definida. A chave foi inferida e a definição criada como uma tabela/exibição somente leitura.
+-->
+  <EntityType Name="Acessos">
+    <Key>
+      <PropertyRef Name="idacesso" />
+      <PropertyRef Name="idprojeto" />
+      <PropertyRef Name="idusuario" />
+    </Key>
+    <Property Name="idacesso" Type="int" Nullable="false" />
+    <Property Name="idprojeto" Type="int" Nullable="false" />
+    <Property Name="idusuario" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Arquivos">
+    <Key>
+      <PropertyRef Name="idarquivo" />
+    </Key>
+    <Property Name="idarquivo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="caminho" Type="varchar(max)" Nullable="false" />
+    <Property Name="idcadastro" Type="int" />
+    <Property Name="idlote" Type="int" />
+    <Property Name="cadastrador" Type="varchar(max)" />
+    <Property Name="nomearquivo" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="ProviderKey" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="RoleId" Type="nvarchar" Nullable="false" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="Cadastrador">
+    <Key>
+      <PropertyRef Name="idcadastrador" />
+    </Key>
+    <Property Name="idcadastrador" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="cadastrador" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Cadastros">
+    <Key>
+      <PropertyRef Name="idcadastro" />
+    </Key>
+    <Property Name="idcadastro" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ncadastro" Type="bigint" />
+    <Property Name="idlote" Type="int" />
+    <Property Name="idmunicipio" Type="int" />
+    <Property Name="propietario" Type="varchar(max)" />
+    <Property Name="cpf" Type="nvarchar" MaxLength="24" />
+    <Property Name="fonecontato" Type="nvarchar" MaxLength="15" />
+    <Property Name="propriedade" Type="nvarchar(max)" />
+    <Property Name="comunidade" Type="nvarchar(max)" />
+    <Property Name="area" Type="decimal" Scale="4" />
+    <Property Name="statuscoodenada" Type="nvarchar" MaxLength="25" />
+    <Property Name="statusgoogle" Type="nvarchar" MaxLength="25" />
+    <Property Name="statusservico" Type="varchar(max)" />
+    <Property Name="observacao" Type="varchar(max)" />
+    <Property Name="cadastrador" Type="varchar(max)" />
+    <Property Name="dtcadastro" Type="date" />
+    <Property Name="statusemissao" Type="nchar" MaxLength="10" />
+    <Property Name="numerocarba" Type="nvarchar(max)" />
+    <Property Name="statusimpressao" Type="nchar" MaxLength="10" />
+    <Property Name="dtentrega" Type="date" />
+  </EntityType>
+  <!--Erros Encontrados Durante a Geração:
+aviso 6002: A tabela/exibição 'AmbientalRuaris.dbo.Cidade' não tem uma chave primária definida. A chave foi inferida e a definição criada como uma tabela/exibição somente leitura.
+-->
+  <EntityType Name="Cidade">
+    <Key>
+      <PropertyRef Name="idcidade" />
+    </Key>
+    <Property Name="idcidade" Type="int" Nullable="false" />
+    <Property Name="cidade" Type="nvarchar" MaxLength="80" />
+    <Property Name="uf" Type="nchar" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="ImportacaoSeia">
+    <Key>
+      <PropertyRef Name="idseia" />
+    </Key>
+    <Property Name="idseia" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="nomeimovel" Type="varchar(max)" />
+    <Property Name="municipio" Type="nvarchar(max)" />
+    <Property Name="statuscadastro" Type="nvarchar(max)" />
+    <Property Name="requerente" Type="varchar(max)" />
+    <Property Name="area" Type="decimal" Scale="4" />
+    <Property Name="dtprimeirafinalizacao" Type="date" />
+  </EntityType>
+  <EntityType Name="Lotes">
+    <Key>
+      <PropertyRef Name="idlote" />
+    </Key>
+    <Property Name="idlote" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="lote" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Municipios">
+    <Key>
+      <PropertyRef Name="idmunicipio" />
+    </Key>
+    <Property Name="idmunicipio" Type="int" Nullable="false" />
+    <Property Name="idlote" Type="int" />
+    <Property Name="municipio" Type="nvarchar(max)" />
+    <Property Name="uf" Type="char" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Propietario">
+    <Key>
+      <PropertyRef Name="idpropietario" />
+    </Key>
+    <Property Name="idpropietario" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="propietario" Type="varchar(max)" />
+    <Property Name="cpf" Type="nvarchar" MaxLength="22" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <!--Erros Encontrados Durante a Geração:
+aviso 6002: A tabela/exibição 'AmbientalRuaris.dbo.usuarios' não tem uma chave primária definida. A chave foi inferida e a definição criada como uma tabela/exibição somente leitura.
+-->
+  <EntityType Name="usuarios">
+    <Key>
+      <PropertyRef Name="idusu" />
+    </Key>
+    <Property Name="idusu" Type="int" Nullable="false" />
+    <Property Name="nome" Type="varchar" MaxLength="100" />
+    <Property Name="email" Type="varchar" MaxLength="100" />
+    <Property Name="login" Type="varchar" MaxLength="20" />
+    <Property Name="senha" Type="varchar" MaxLength="32" />
+    <Property Name="status" Type="nvarchar" MaxLength="50" />
+    <Property Name="tipousuario" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Arquivos_Cadastros">
+    <End Role="Cadastros" Type="Rural.Store.Cadastros" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Arquivos" Type="Rural.Store.Arquivos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cadastros">
+        <PropertyRef Name="idcadastro" />
+      </Principal>
+      <Dependent Role="Arquivos">
+        <PropertyRef Name="idcadastro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Rural.Store.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Rural.Store.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Rural.Store.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Rural.Store.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Rural.Store.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Rural.Store.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Rural.Store.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Rural.Store.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <!--Erros Encontrados Durante a Geração:
+aviso 6013: A tabela/exibição 'AmbientalRuaris.dbo.View_Certificados' não possui uma chave primária definida e não foi possível inferir uma chave primária válida. Essa tabela/exibição foi excluída. Para usar a entidade, você precisará revisar seu esquema, adicionar as chaves corretas e remover os comentários da entidade.
+
+<EntityType Name="View_Certificados">
+  <Property Name="ncadastro" Type="bigint" />
+  <Property Name="lote" Type="nchar" MaxLength="10" />
+  <Property Name="municipio" Type="nvarchar(max)" />
+  <Property Name="propietario" Type="varchar(max)" />
+  <Property Name="cpf" Type="nvarchar" MaxLength="24" />
+  <Property Name="propriedade" Type="nvarchar(max)" />
+  <Property Name="statusservico" Type="varchar(max)" />
+  <Property Name="statusemissao" Type="nchar" MaxLength="10" />
+  <Property Name="dtcadastro" Type="date" />
+</EntityType>-->
+</Schema>

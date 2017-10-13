@@ -23,7 +23,9 @@ namespace CarWeb.Models
 
         public string nomearquivo { get; set; }
 
-
+        [NotMapped]
+        public Boolean selected { get; set; }
+        
         public IEnumerable<HttpPostedFileBase> Arquivoss { get; set; }
     }
 }

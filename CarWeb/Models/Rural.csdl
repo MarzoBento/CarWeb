@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Rural" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="RuralEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Rural.C__MigrationHistory" />
+    <EntitySet Name="Acessos" EntityType="Rural.Acesso" />
+    <EntitySet Name="Arquivos" EntityType="Rural.Arquivo" />
+    <EntitySet Name="AspNetRoles" EntityType="Rural.AspNetRole" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Rural.AspNetUserClaim" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Rural.AspNetUserLogin" />
+    <EntitySet Name="AspNetUsers" EntityType="Rural.AspNetUser" />
+    <EntitySet Name="Cadastradors" EntityType="Rural.Cadastrador" />
+    <EntitySet Name="Cadastros" EntityType="Rural.Cadastro" />
+    <EntitySet Name="Cidades" EntityType="Rural.Cidade" />
+    <EntitySet Name="ImportacaoSeias" EntityType="Rural.ImportacaoSeia" />
+    <EntitySet Name="Lotes" EntityType="Rural.Lote" />
+    <EntitySet Name="Municipios" EntityType="Rural.Municipio" />
+    <EntitySet Name="Propietarios" EntityType="Rural.Propietario" />
+    <EntitySet Name="sysdiagrams" EntityType="Rural.sysdiagram" />
+    <EntitySet Name="usuarios" EntityType="Rural.usuario" />
+    <AssociationSet Name="FK_Arquivos_Cadastros" Association="Rural.FK_Arquivos_Cadastros">
+      <End Role="Cadastros" EntitySet="Cadastros" />
+      <End Role="Arquivos" EntitySet="Arquivos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Rural.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Rural.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="Rural.AspNetUserRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+    <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" Unicode="true" FixedLength="false" />
+    <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Acesso">
+    <Key>
+      <PropertyRef Name="idacesso" />
+      <PropertyRef Name="idprojeto" />
+      <PropertyRef Name="idusuario" />
+    </Key>
+    <Property Name="idacesso" Type="Int32" Nullable="false" />
+    <Property Name="idprojeto" Type="Int32" Nullable="false" />
+    <Property Name="idusuario" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Arquivo">
+    <Key>
+      <PropertyRef Name="idarquivo" />
+    </Key>
+    <Property Name="idarquivo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="caminho" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="idlote" Type="Int32" />
+    <Property Name="cadastrador" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="nomearquivo" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Cadastro" Relationship="Rural.FK_Arquivos_Cadastros" FromRole="Arquivos" ToRole="Cadastros" />
+  </EntityType>
+  <EntityType Name="AspNetRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Rural.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Rural.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogin">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Rural.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="Rural.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="Rural.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="AspNetRoles" Relationship="Rural.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+  </EntityType>
+  <EntityType Name="Cadastrador">
+    <Key>
+      <PropertyRef Name="idcadastrador" />
+    </Key>
+    <Property Name="idcadastrador" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cadastrador1" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Cadastro">
+    <Key>
+      <PropertyRef Name="idcadastro" />
+    </Key>
+    <Property Name="idcadastro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ncadastro" Type="Int64" />
+    <Property Name="idlote" Type="Int32" />
+    <Property Name="idmunicipio" Type="Int32" />
+    <Property Name="propietario" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="cpf" Type="String" MaxLength="24" Unicode="true" FixedLength="false" />
+    <Property Name="fonecontato" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="propriedade" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="comunidade" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="area" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="statuscoodenada" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+    <Property Name="statusgoogle" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+    <Property Name="statusservico" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="observacao" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="cadastrador" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="dtcadastro" Type="DateTime" />
+    <Property Name="statusemissao" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="numerocarba" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="statusimpressao" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="dtentrega" Type="DateTime" />
+    <NavigationProperty Name="Arquivos" Relationship="Rural.FK_Arquivos_Cadastros" FromRole="Cadastros" ToRole="Arquivos" />
+  </EntityType>
+  <EntityType Name="Cidade">
+    <Key>
+      <PropertyRef Name="idcidade" />
+    </Key>
+    <Property Name="idcidade" Type="Int32" Nullable="false" />
+    <Property Name="cidade1" Type="String" MaxLength="80" Unicode="true" FixedLength="false" />
+    <Property Name="uf" Type="String" MaxLength="2" Unicode="true" FixedLength="true" />
+  </EntityType>
+  <EntityType Name="ImportacaoSeia">
+    <Key>
+      <PropertyRef Name="idseia" />
+    </Key>
+    <Property Name="idseia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nomeimovel" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="municipio" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="statuscadastro" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="requerente" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="area" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="dtprimeirafinalizacao" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="Lote">
+    <Key>
+      <PropertyRef Name="idlote" />
+    </Key>
+    <Property Name="idlote" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="lote1" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+  </EntityType>
+  <EntityType Name="Municipio">
+    <Key>
+      <PropertyRef Name="idmunicipio" />
+    </Key>
+    <Property Name="idmunicipio" Type="Int32" Nullable="false" />
+    <Property Name="idlote" Type="Int32" />
+    <Property Name="municipio1" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="uf" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+  </EntityType>
+  <EntityType Name="Propietario">
+    <Key>
+      <PropertyRef Name="idpropietario" />
+    </Key>
+    <Property Name="idpropietario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="propietario1" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="cpf" Type="String" MaxLength="22" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="idusu" />
+    </Key>
+    <Property Name="idusu" Type="Int32" Nullable="false" />
+    <Property Name="nome" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="email" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="login" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="senha" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
+    <Property Name="status" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="tipousuario" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Arquivos_Cadastros">
+    <End Role="Cadastros" Type="Rural.Cadastro" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Arquivos" Type="Rural.Arquivo" Multiplicity="*" />
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Rural.AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Rural.AspNetUserClaim" Multiplicity="*" />
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Rural.AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Rural.AspNetUserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Role="AspNetRoles" Type="Rural.AspNetRole" Multiplicity="*" />
+    <End Role="AspNetUsers" Type="Rural.AspNetUser" Multiplicity="*" />
+  </Association>
+</Schema>

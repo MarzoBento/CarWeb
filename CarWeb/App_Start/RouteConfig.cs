@@ -20,6 +20,17 @@ namespace CarWeb
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute("Download",
+            "Download/{action}/{pesquisaLote}",
+             new
+             {
+                 controller = "Download",
+                 action = "Index",
+                 // nothing optional 
+             });
+
+
         }
     }
 }

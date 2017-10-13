@@ -15,5 +15,7 @@ namespace CarWeb.Models
         [StringLength(10)]
         [DisplayName("Lote")]
         public string lote { get; set; }
+
+        public virtual List<Arquivos> Arquivoss { get; set; }
     }
 }

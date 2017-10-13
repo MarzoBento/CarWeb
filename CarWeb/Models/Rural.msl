@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RuralStoreContainer" CdmEntityContainer="RuralEntities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="Rural.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Acessos">
+      <EntityTypeMapping TypeName="Rural.Acesso">
+        <MappingFragment StoreEntitySet="Acessos">
+          <ScalarProperty Name="idacesso" ColumnName="idacesso" />
+          <ScalarProperty Name="idprojeto" ColumnName="idprojeto" />
+          <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Arquivos">
+      <EntityTypeMapping TypeName="Rural.Arquivo">
+        <MappingFragment StoreEntitySet="Arquivos">
+          <ScalarProperty Name="idarquivo" ColumnName="idarquivo" />
+          <ScalarProperty Name="caminho" ColumnName="caminho" />
+          <ScalarProperty Name="idlote" ColumnName="idlote" />
+          <ScalarProperty Name="cadastrador" ColumnName="cadastrador" />
+          <ScalarProperty Name="nomearquivo" ColumnName="nomearquivo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="Rural.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="Rural.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="Rural.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="Rural.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cadastradors">
+      <EntityTypeMapping TypeName="Rural.Cadastrador">
+        <MappingFragment StoreEntitySet="Cadastrador">
+          <ScalarProperty Name="idcadastrador" ColumnName="idcadastrador" />
+          <ScalarProperty Name="cadastrador1" ColumnName="cadastrador" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cadastros">
+      <EntityTypeMapping TypeName="Rural.Cadastro">
+        <MappingFragment StoreEntitySet="Cadastros">
+          <ScalarProperty Name="idcadastro" ColumnName="idcadastro" />
+          <ScalarProperty Name="ncadastro" ColumnName="ncadastro" />
+          <ScalarProperty Name="idlote" ColumnName="idlote" />
+          <ScalarProperty Name="idmunicipio" ColumnName="idmunicipio" />
+          <ScalarProperty Name="propietario" ColumnName="propietario" />
+          <ScalarProperty Name="cpf" ColumnName="cpf" />
+          <ScalarProperty Name="fonecontato" ColumnName="fonecontato" />
+          <ScalarProperty Name="propriedade" ColumnName="propriedade" />
+          <ScalarProperty Name="comunidade" ColumnName="comunidade" />
+          <ScalarProperty Name="area" ColumnName="area" />
+          <ScalarProperty Name="statuscoodenada" ColumnName="statuscoodenada" />
+          <ScalarProperty Name="statusgoogle" ColumnName="statusgoogle" />
+          <ScalarProperty Name="statusservico" ColumnName="statusservico" />
+          <ScalarProperty Name="observacao" ColumnName="observacao" />
+          <ScalarProperty Name="cadastrador" ColumnName="cadastrador" />
+          <ScalarProperty Name="dtcadastro" ColumnName="dtcadastro" />
+          <ScalarProperty Name="statusemissao" ColumnName="statusemissao" />
+          <ScalarProperty Name="numerocarba" ColumnName="numerocarba" />
+          <ScalarProperty Name="statusimpressao" ColumnName="statusimpressao" />
+          <ScalarProperty Name="dtentrega" ColumnName="dtentrega" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cidades">
+      <EntityTypeMapping TypeName="Rural.Cidade">
+        <MappingFragment StoreEntitySet="Cidade">
+          <ScalarProperty Name="idcidade" ColumnName="idcidade" />
+          <ScalarProperty Name="cidade1" ColumnName="cidade" />
+          <ScalarProperty Name="uf" ColumnName="uf" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ImportacaoSeias">
+      <EntityTypeMapping TypeName="Rural.ImportacaoSeia">
+        <MappingFragment StoreEntitySet="ImportacaoSeia">
+          <ScalarProperty Name="idseia" ColumnName="idseia" />
+          <ScalarProperty Name="nomeimovel" ColumnName="nomeimovel" />
+          <ScalarProperty Name="municipio" ColumnName="municipio" />
+          <ScalarProperty Name="statuscadastro" ColumnName="statuscadastro" />
+          <ScalarProperty Name="requerente" ColumnName="requerente" />
+          <ScalarProperty Name="area" ColumnName="area" />
+          <ScalarProperty Name="dtprimeirafinalizacao" ColumnName="dtprimeirafinalizacao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lotes">
+      <EntityTypeMapping TypeName="Rural.Lote">
+        <MappingFragment StoreEntitySet="Lotes">
+          <ScalarProperty Name="idlote" ColumnName="idlote" />
+          <ScalarProperty Name="lote1" ColumnName="lote" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Municipios">
+      <EntityTypeMapping TypeName="Rural.Municipio">
+        <MappingFragment StoreEntitySet="Municipios">
+          <ScalarProperty Name="idmunicipio" ColumnName="idmunicipio" />
+          <ScalarProperty Name="idlote" ColumnName="idlote" />
+          <ScalarProperty Name="municipio1" ColumnName="municipio" />
+          <ScalarProperty Name="uf" ColumnName="uf" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Propietarios">
+      <EntityTypeMapping TypeName="Rural.Propietario">
+        <MappingFragment StoreEntitySet="Propietario">
+          <ScalarProperty Name="idpropietario" ColumnName="idpropietario" />
+          <ScalarProperty Name="propietario1" ColumnName="propietario" />
+          <ScalarProperty Name="cpf" ColumnName="cpf" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Rural.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuarios">
+      <EntityTypeMapping TypeName="Rural.usuario">
+        <MappingFragment StoreEntitySet="usuarios">
+          <ScalarProperty Name="idusu" ColumnName="idusu" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="senha" ColumnName="senha" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="tipousuario" ColumnName="tipousuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="FK_Arquivos_Cadastros" TypeName="Rural.FK_Arquivos_Cadastros" StoreEntitySet="Arquivos">
+      <EndProperty Name="Cadastros">
+        <ScalarProperty Name="idcadastro" ColumnName="idcadastro" />
+      </EndProperty>
+      <EndProperty Name="Arquivos">
+        <ScalarProperty Name="idarquivo" ColumnName="idarquivo" />
+      </EndProperty>
+      <Condition ColumnName="idcadastro" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" TypeName="Rural.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" StoreEntitySet="AspNetUserClaims">
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+      <EndProperty Name="AspNetUserClaims">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="Rural.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

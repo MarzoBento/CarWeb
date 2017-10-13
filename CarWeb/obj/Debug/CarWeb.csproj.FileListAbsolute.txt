@@ -108,6 +108,9 @@ D:\CarWeb\CarWeb\CarWeb\bin\pt-br\Microsoft.Owin.Security.Facebook.resources.dll
 D:\CarWeb\CarWeb\CarWeb\bin\pt-br\Microsoft.Owin.Security.Google.resources.dll
 D:\CarWeb\CarWeb\CarWeb\bin\pt-br\Microsoft.Owin.Security.Twitter.resources.dll
 D:\CarWeb\CarWeb\CarWeb\bin\pt-br\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
-D:\CarWeb\CarWeb\CarWeb\obj\Debug\CarWeb.csprojResolveAssemblyReference.cache
 D:\CarWeb\CarWeb\CarWeb\obj\Debug\CarWeb.dll
 D:\CarWeb\CarWeb\CarWeb\obj\Debug\CarWeb.pdb
+D:\CarWeb\CarWeb\CarWeb\obj\Debug\CarWeb.csprojResolveAssemblyReference.cache
+D:\CarWeb\CarWeb\CarWeb\bin\System.IO.Compression.dll
+D:\CarWeb\CarWeb\CarWeb\bin\System.IO.Compression.FileSystem.dll
+D:\CarWeb\CarWeb\CarWeb\bin\System.Shim.dll

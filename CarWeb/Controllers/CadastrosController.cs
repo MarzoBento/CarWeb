@@ -116,7 +116,7 @@ namespace CarWeb.Controllers
                         if (arquivo.ContentLength > 0)
                         {
                             nomeArquivo = Path.GetFileName(arquivo.FileName);
-                            var caminho = Path.Combine(Server.MapPath("~/Imagem"), nomeArquivo);
+                            var caminho = Path.Combine(Server.MapPath("~/Arquivos"), nomeArquivo);
                             arquivo.SaveAs(caminho);
                             FileStream fStream = new FileStream(caminho, FileMode.Open, FileAccess.Read);
                             long numBytes = caminho.Length;
@@ -241,7 +241,7 @@ namespace CarWeb.Controllers
                     if (arquivo.ContentLength > 0)
                     {
                         nomeArquivob = Path.GetFileName(arquivo.FileName);
-                        var caminho = Path.Combine(Server.MapPath("~/Imagem"), nomeArquivob);
+                        var caminho = Path.Combine(Server.MapPath("~/Arquivos"), nomeArquivob);
                         arquivo.SaveAs(caminho);
                         FileStream fStream = new FileStream(caminho, FileMode.Open, FileAccess.Read);
                         long numBytes = caminho.Length;
@@ -377,10 +377,10 @@ namespace CarWeb.Controllers
           
                 db.Entry(cadastros).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+               // return RedirectToAction("Index");
             
 
-            byte[] datab = null;
+           // byte[] datab = null;
 
             string nomeArquivob = "";
 
@@ -390,12 +390,12 @@ namespace CarWeb.Controllers
                 if (arquivo.ContentLength > 0)
                 {
                     nomeArquivob = Path.GetFileName(arquivo.FileName);
-                    var caminho = Path.Combine(Server.MapPath("~/Imagem"), nomeArquivob);
+                    var caminho = Path.Combine(Server.MapPath("~/Arquivos"), nomeArquivob);
                     arquivo.SaveAs(caminho);
                     FileStream fStream = new FileStream(caminho, FileMode.Open, FileAccess.Read);
                     long numBytes = caminho.Length;
                     BinaryReader br = new BinaryReader(fStream);
-                    datab = br.ReadBytes((int)numBytes);
+                    //datab = br.ReadBytes((int)numBytes);
                     arq.caminho = caminho;
                     arq.idcadastro = cadastros.idcadastro;
                     arq.idlote = cadastros.idlote;

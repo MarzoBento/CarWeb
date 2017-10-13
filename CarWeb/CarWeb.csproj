@@ -52,8 +52,19 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\40-System.IO.Compression.1.0.0.2\lib\net40-client\System.IO.Compression.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression.FileSystem, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\40-System.IO.Compression.FileSystem.1.0.0.2\lib\net40-client\System.IO.Compression.FileSystem.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Shim, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Shim.1.0.0.1\lib\net40-client\System.Shim.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -194,6 +205,7 @@
     <Compile Include="Controllers\CadastradorsController.cs" />
     <Compile Include="Controllers\CadastrosController.cs" />
     <Compile Include="Controllers\CidadesController.cs" />
+    <Compile Include="Controllers\DownloadController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImportacaoCadastroController.cs" />
     <Compile Include="Controllers\ImportacaoSeiasController.cs" />
@@ -212,6 +224,7 @@
     <Compile Include="Models\Cidade.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ImportacaoSeia.cs" />
+    <Compile Include="Models\LoteArquivo.cs" />
     <Compile Include="Models\Lotes.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ModelCarWeb.cs" />
@@ -241,6 +254,7 @@
     </Content>
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\carweb.js" />
     <Content Include="Scripts\cldr\event.js" />
     <Content Include="Scripts\cldr\supplemental.js" />
     <Content Include="Scripts\cldr\unresolved.js" />
@@ -406,9 +420,15 @@
     <Content Include="Views\Cadastros\Edit.cshtml" />
     <Content Include="Views\Cadastros\Index.cshtml" />
     <Content Include="Views\ImportacaoCadastro\Index.cshtml" />
+    <Content Include="Views\Download\Create.cshtml" />
+    <Content Include="Views\Download\Delete.cshtml" />
+    <Content Include="Views\Download\Details.cshtml" />
+    <Content Include="Views\Download\Edit.cshtml" />
+    <Content Include="Views\Download\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Arquivos\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
